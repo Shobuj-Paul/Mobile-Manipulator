@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<robot name="manipulator" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="std_friction" value="1.0" />
+<xacro:property name="joint_friction" value="10.0" />
+
+<gazebo reference="base_link">
+  <mu1>${std_friction}</mu1>
+  <mu2>${std_friction}</mu2>
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="shoulder_1">
+  <mu1>${joint_friction}</mu1>
+  <mu2>${joint_friction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="arm_1">
+  <mu1>${joint_friction}</mu1>
+  <mu2>${joint_friction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="forearm_1">
+  <mu1>${joint_friction}</mu1>
+  <mu2>${joint_friction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="wrist_1">
+  <mu1>${joint_friction}</mu1>
+  <mu2>${joint_friction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="palm_1">
+  <mu1>${joint_friction}</mu1>
+  <mu2>${joint_friction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="knuckle_1">
+  <mu1>${joint_friction}</mu1>
+  <mu2>${joint_friction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="finger_1_1">
+  <mu1>${joint_friction}</mu1>
+  <mu2>${joint_friction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="finger_2_1">
+  <mu1>${joint_friction}</mu1>
+  <mu2>${joint_friction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+</robot>

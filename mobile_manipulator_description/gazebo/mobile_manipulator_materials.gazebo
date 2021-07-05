@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<robot name="mobile_manipulator" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Yellow" />
+<xacro:property name="wheel_color" value="Gazebo/Black" />
+<xacro:property name="arm_color" value="Gazebo/Grey" />
+<xacro:property name="sensor_color" value="Gazebo/Red" />
+
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="wheel_fl_1">
+  <material>${wheel_color}</material>
+</gazebo>
+
+<gazebo reference="wheel_fr_1">
+  <material>${wheel_color}</material>
+</gazebo>
+
+<gazebo reference="wheel_br_1">
+  <material>${wheel_color}</material>
+</gazebo>
+
+<gazebo reference="lidar_1">
+  <material>${sensor_color}</material>
+</gazebo>
+
+<gazebo reference="arm_base_right_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="arm_base_left_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="shoulder_right_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="shoulder_left_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="wheel_bl_1">
+  <material>${wheel_color}</material>
+</gazebo>
+
+<gazebo reference="arm_right_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="arm_left_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="forearm_right_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="forearm_left_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="wrist_right_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="wrist_left_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="palm_right_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="palm_left_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="knuckle_right_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="knuckle_left_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="finger_right_1_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="finger_right_2_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="finger_left_1_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+<gazebo reference="finger_left_2_1">
+  <material>${arm_color}</material>
+</gazebo>
+
+</robot>

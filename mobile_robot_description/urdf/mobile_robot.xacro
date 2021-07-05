@@ -1,0 +1,176 @@
+<?xml version="1.0" ?>
+<robot name="mobile_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find mobile_robot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find mobile_robot_description)/urdf/mobile_robot.trans" />
+<xacro:include filename="$(find mobile_robot_description)/gazebo/mobile_robot_materials.gazebo" />
+<xacro:include filename="$(find mobile_robot_description)/gazebo/mobile_robot_physics.gazebo" />
+<xacro:include filename="$(find mobile_robot_description)/gazebo/mobile_robot_plugins.gazebo" />
+<link name="dummy">
+</link>
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="1.1880172534914988e-15 1.8117263115745358e-14 0.3472850110892992"/>
+    <mass value="2953.848903151669"/>
+    <inertia ixx="202.347752" ixy="0.0" ixz="0.0" iyy="313.193688" iyz="0.0" izz="348.342085"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_fl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.070565940925917e-14 0.0 1.189326415129699e-14"/>
+    <mass value="24.27616635676298"/>
+    <inertia ixx="0.081869" ixy="0.0" ixz="0.0" iyy="0.123277" iyz="-0.0" izz="0.081869"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.35 -0.35 -0.1"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.35 -0.35 -0.1"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_fr_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.070565940925917e-14 1.6653345369377348e-15 1.1907141939104804e-14"/>
+    <mass value="24.27616635676298"/>
+    <inertia ixx="0.081869" ixy="-0.0" ixz="0.0" iyy="0.123277" iyz="-0.0" izz="0.081869"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.35 0.35 -0.1"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.35 0.35 -0.1"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_br_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.0761170560490427e-14 1.6653345369377348e-15 1.189326415129699e-14"/>
+    <mass value="24.27616635676298"/>
+    <inertia ixx="0.081869" ixy="0.0" ixz="0.0" iyy="0.123277" iyz="-0.0" izz="0.081869"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.35 0.35 -0.1"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.35 0.35 -0.1"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="5.790023100122031e-18 2.2129722338883767e-14 0.0249999999999998"/>
+    <mass value="3.082687791334983"/>
+    <inertia ixx="0.002569" ixy="-0.0" ixz="0.0" iyy="0.002569" iyz="0.0" izz="0.003853"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.675"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.675"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_bl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.0761170560490427e-14 0.0 1.189326415129699e-14"/>
+    <mass value="24.27616635676298"/>
+    <inertia ixx="0.081869" ixy="0.0" ixz="0.0" iyy="0.123277" iyz="-0.0" izz="0.081869"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.35 -0.35 -0.1"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.35 -0.35 -0.1"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_description/meshes/wheel_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="dummy_joint" type="fixed">
+  <parent link="dummy"/>
+  <child link="base_link"/>
+</joint>
+
+<joint name="motor_fl" type="continuous">
+  <origin rpy="0 0 0" xyz="0.35 0.35 0.1"/>
+  <parent link="base_link"/>
+  <child link="wheel_fl_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="motor_fr" type="continuous">
+  <origin rpy="0 0 0" xyz="0.35 -0.35 0.1"/>
+  <parent link="base_link"/>
+  <child link="wheel_fr_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="motor_br" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.35 -0.35 0.1"/>
+  <parent link="base_link"/>
+  <child link="wheel_br_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="lidar_joint" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 0.0 0.675"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="motor_bl" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.35 0.35 0.1"/>
+  <parent link="base_link"/>
+  <child link="wheel_bl_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+</robot>

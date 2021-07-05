@@ -1,0 +1,261 @@
+<?xml version="1.0" ?>
+<robot name="manipulator" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find manipulator_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find manipulator_description)/urdf/manipulator.trans" />
+<xacro:include filename="$(find manipulator_description)/gazebo/manipulator_materials.gazebo" />
+<xacro:include filename="$(find manipulator_description)/gazebo/manipulator_physics.gazebo" />
+<xacro:include filename="$(find manipulator_description)/gazebo/manipulator_plugins.gazebo" />
+<link name="dummy">
+</link>
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-1.1685831912934098e-14 0.0 0.022821785647159212"/>
+    <mass value="11.021652857621229"/>
+    <inertia ixx="0.027507" ixy="0.0" ixz="0.0" iyy="0.027507" iyz="0.0" izz="0.050904"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shoulder_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.01805715390479471 0.0004345371693901659 0.0809105077529908"/>
+    <mass value="5.071516538575448"/>
+    <inertia ixx="0.028654" ixy="-5.7e-05" ixz="-0.006552" iyy="0.031228" iyz="-0.000225" izz="0.00538"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.06"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.06"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.19413326329620828 -0.012606374294724804 0.005895047633386025"/>
+    <mass value="3.2551390501910493"/>
+    <inertia ixx="0.000929" ixy="0.001267" ixz="0.000355" iyy="0.056816" iyz="-5.2e-05" izz="0.056431"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.04388 0.015 -0.243021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.04388 0.015 -0.243021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="forearm_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.06010304679536271 0.050453471476697584 0.025021670306494992"/>
+    <mass value="5.686115943358722"/>
+    <inertia ixx="0.004512" ixy="-0.001554" ixz="-0.001693" iyy="0.039696" iyz="-0.000726" izz="0.039705"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.39388 0.015 -0.243021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/forearm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.39388 0.015 -0.243021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/forearm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wrist_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.054203077066210636 -1.942890293094024e-16 3.750217997811056e-07"/>
+    <mass value="2.3056348677467557"/>
+    <inertia ixx="0.001117" ixy="-0.0" ixz="0.0" iyy="0.003766" iyz="0.0" izz="0.003645"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.61488 -0.04 -0.273021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/wrist_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.61488 -0.04 -0.273021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/wrist_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="palm_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.042192924671413 -0.005000000000069643 3.750217997811056e-07"/>
+    <mass value="0.47041814660861725"/>
+    <inertia ixx="0.000112" ixy="0.0" ixz="-0.0" iyy="0.000186" iyz="0.0" izz="0.000186"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.71988 -0.0475 -0.273021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/palm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.71988 -0.0475 -0.273021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/palm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="knuckle_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.01882931216128858 6.814973533414426e-06 3.750217997811056e-07"/>
+    <mass value="0.6016545430827455"/>
+    <inertia ixx="0.000236" ixy="-0.0" ixz="0.0" iyy="0.000202" iyz="-0.0" izz="0.000259"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.78388 -0.0425 -0.273021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/knuckle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.78388 -0.0425 -0.273021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/knuckle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="finger_1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.06678160147364631 -0.0037963435816736196 7.809069139602665e-05"/>
+    <mass value="0.17058341058230234"/>
+    <inertia ixx="1.2e-05" ixy="1.8e-05" ixz="-1e-06" iyy="0.000296" iyz="0.0" izz="0.000305"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.81888 -0.0725 -0.273021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/finger_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.81888 -0.0725 -0.273021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/finger_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="finger_2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.06678160147364598 0.003796343581673269 -7.734064779657546e-05"/>
+    <mass value="0.17058341058230234"/>
+    <inertia ixx="1.2e-05" ixy="-1.8e-05" ixz="1e-06" iyy="0.000296" iyz="0.0" izz="0.000305"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.81888 -0.0125 -0.273021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/finger_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.81888 -0.0125 -0.273021"/>
+    <geometry>
+      <mesh filename="package://manipulator_description/meshes/finger_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="dummy_joint" type="fixed">
+  <parent link="dummy"/>
+  <child link="base_link"/>
+</joint>
+
+<joint name="base_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.0 0.06"/>
+  <parent link="base_link"/>
+  <child link="shoulder_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="shoulder_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.04388 -0.015 0.183021"/>
+  <parent link="shoulder_1"/>
+  <child link="arm_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="elbow_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.35 0.0 0.0"/>
+  <parent link="arm_1"/>
+  <child link="forearm_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="wrist_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.221 0.055 0.03"/>
+  <parent link="forearm_1"/>
+  <child link="wrist_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="hand_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.105 0.0075 0.0"/>
+  <parent link="wrist_1"/>
+  <child link="palm_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="palm_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.064 -0.005 0.0"/>
+  <parent link="palm_1"/>
+  <child link="knuckle_1"/>
+  <axis xyz="1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="finger_1_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.035 0.03 0.0"/>
+  <parent link="knuckle_1"/>
+  <child link="finger_1_1"/>
+  <axis xyz="-0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="finger_2_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.035 -0.03 0.0"/>
+  <parent link="knuckle_1"/>
+  <child link="finger_2_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+</robot>

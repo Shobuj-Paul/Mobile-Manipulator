@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<robot name="mobile_robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<gazebo>
+  <plugin filename="libgazebo_ros_control.so" name="control"/>
+</gazebo>
+
+<!--<gazebo>
+  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+    <updateRate>100</updateRate>
+    <leftJoint>motor_fl</leftJoint>
+    <rightJoint>motor_fr</rightJoint>
+    <wheelSeparation>0.600</wheelSeparation>
+    <wheelDiameter>0.200</wheelDiameter>
+    <wheelAcceleration>1.0</wheelAcceleration>
+    <wheelTorque>20</wheelTorque>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <odometrySource>1</odometrySource>
+    <publishWheelTF>true</publishWheelTF>
+    <publishOdom>true</publishOdom>
+    <publishWheelJointState>true</publishWheelJointState>
+    <publishOdomTF>true</publishOdomTF>
+    <publishTf>1</publishTf>
+    <odometrySource>odom</odometrySource>
+    <rosDebugLevel>na</rosDebugLevel>
+    <legacyMode>false</legacyMode>
+  </plugin>
+</gazebo>-->
+
+<!--Skid Steer Drive-->
+<gazebo>
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+    <updateRate>100.0</updateRate>
+    <robotNamespace>/</robotNamespace>
+    <leftFrontJoint>motor_fl</leftFrontJoint>
+    <rightFrontJoint>motor_fr</rightFrontJoint>
+    <leftRearJoint>motor_bl</leftRearJoint>
+    <rightRearJoint>motor_br</rightRearJoint>
+    <wheelSeparation>0.600</wheelSeparation>
+    <wheelDiameter>0.200</wheelDiameter>
+    <robotBaseFrame>dummy</robotBaseFrame>
+    <torque>20</torque>
+    <topicName>cmd_vel</topicName>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <covariance_x>0.000100</covariance_x>
+    <covariance_y>0.000100</covariance_y>
+    <covariance_yaw>0.000100</covariance_yaw>
+    <broadcastTF>true</broadcastTF>
+  </plugin>
+</gazebo>
+
+<!-- Lidar -->
+  <gazebo reference="lidar_1">
+    <sensor type="gpu_ray" name="lidar_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159</min_angle>
+            <max_angle>3.14159</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>4.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+        <topicName>/laser/scan</topicName>
+        <frameName>lidar_1</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>

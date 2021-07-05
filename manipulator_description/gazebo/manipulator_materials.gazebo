@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<robot name="manipulator" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="shoulder_1">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="arm_1">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="forearm_1">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="wrist_1">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="palm_1">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="knuckle_1">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="finger_1_1">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="finger_2_1">
+  <material>${body_color}</material>
+</gazebo>
+
+</robot>
