@@ -1,0 +1,34 @@
+controller_list:
+  - name: fake_manipulator_arm_left_controller
+    type: $(arg execution_type)
+    joints:
+      - shoulder_left_joint
+      - arm_left_joint
+      - forearm_left_joint
+      - wrist_left_joint
+      - palm_left_joint
+  - name: fake_manipulator_arm_right_controller
+    type: $(arg execution_type)
+    joints:
+      - shoulder_right_joint
+      - arm_right_joint
+      - forearm_right_joint
+      - wrist_right_joint
+      - palm_right_joint
+  - name: fake_manipulator_hand_left_controller
+    type: $(arg execution_type)
+    joints:
+      - knuckle_left_joint
+      - finger_left_1_joint
+      - finger_left_2_joint
+  - name: fake_manipulator_hand_right_controller
+    type: $(arg execution_type)
+    joints:
+      - knuckle_right_joint
+      - finger_right_1_joint
+      - finger_right_2_joint
+initial:  # Define initial robot poses.
+#  - group: manipulator_arm_left
+#    pose: home
+
+  []

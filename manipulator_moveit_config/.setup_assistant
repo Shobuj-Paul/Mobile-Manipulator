@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: manipulator_description
+    relative_path: urdf/manipulator.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/manipulator.srdf
+  CONFIG:
+    author_name: Shobuj Paul
+    author_email: shobuj.191ch048@nitk.edu.in
+    generated_timestamp: 1625490445
