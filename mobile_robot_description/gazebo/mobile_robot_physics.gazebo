@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <robot name="mobile_robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-<xacro:property name="std_friction" value="1.0" />
-<xacro:property name="wheel_friction" value="100.0" />
+<xacro:property name="std_friction" value="0.2" />
+<xacro:property name="wheel_friction" value="1.0" />
 
 <gazebo reference="base_link">
   <mu1>${std_friction}</mu1>

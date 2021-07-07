@@ -1,7 +1,7 @@
 # Simulation settings for using moveit_sim_controllers
 moveit_sim_hw_interface:
-  joint_model_group: todo_group_name
-  joint_model_group_pose: todo_state_name
+  joint_model_group: manipulator_arm_left
+  joint_model_group_pose: default_left
 # Settings for ros_control_boilerplate control loop
 generic_hw_control_loop:
   loop_hz: 300

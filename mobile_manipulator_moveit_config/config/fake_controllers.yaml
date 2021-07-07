@@ -15,20 +15,20 @@ controller_list:
       - forearm_right_joint
       - wrist_right_joint
       - palm_right_joint
-  - name: fake_manipulator_hand_left_controller
-    type: $(arg execution_type)
-    joints:
-      - knuckle_left_joint
-      - finger_left_1_joint
-      - finger_left_2_joint
   - name: fake_manipulator_hand_right_controller
     type: $(arg execution_type)
     joints:
       - knuckle_right_joint
       - finger_right_1_joint
       - finger_right_2_joint
+  - name: fake_manipulator_hand_left_controller
+    type: $(arg execution_type)
+    joints:
+      - knuckle_right_joint
+      - finger_right_1_joint
+      - finger_right_2_joint
 initial:  # Define initial robot poses.
-#  - group: manipulator_arm_left
-#    pose: home
-
-  []
+  - group: manipulator_arm_left
+    pose: default_left
+  - group: manipulator_arm_right
+    pose: default_right

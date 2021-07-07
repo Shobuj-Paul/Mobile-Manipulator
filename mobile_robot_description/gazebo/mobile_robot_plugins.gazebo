@@ -42,8 +42,9 @@
     <wheelSeparation>0.600</wheelSeparation>
     <wheelDiameter>0.200</wheelDiameter>
     <robotBaseFrame>dummy</robotBaseFrame>
-    <torque>20</torque>
-    <topicName>cmd_vel</topicName>
+    <torque>200</torque>
+    <MaxForce>5.0</MaxForce>
+    <!--<topicName>cmd_vel</topicName>-->
     <commandTopic>cmd_vel</commandTopic>
     <odometryTopic>odom</odometryTopic>
     <odometryFrame>odom</odometryFrame>

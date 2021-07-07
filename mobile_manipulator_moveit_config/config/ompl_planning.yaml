@@ -179,7 +179,7 @@ manipulator_arm_right:
     - LazyPRMstar
     - SPARS
     - SPARStwo
-manipulator_hand_left:
+manipulator_hand_right:
   planner_configs:
     - AnytimePathShortening
     - SBL
@@ -205,9 +205,9 @@ manipulator_hand_left:
     - LazyPRMstar
     - SPARS
     - SPARStwo
-  projection_evaluator: joints(knuckle_left_joint,finger_left_1_joint)
+  projection_evaluator: joints(knuckle_right_joint,finger_right_1_joint)
   longest_valid_segment_fraction: 0.005
-manipulator_hand_right:
+manipulator_hand_left:
   planner_configs:
     - AnytimePathShortening
     - SBL
