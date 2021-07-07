@@ -127,7 +127,7 @@ planner_configs:
     sparse_delta_fraction: 0.25  # delta fraction for connection distance. This value represents the visibility range of sparse samples. default: 0.25
     dense_delta_fraction: 0.001  # delta fraction for interface detection. default: 0.001
     max_failures: 5000  # maximum consecutive failure limit. default: 5000
-manipulator_arm_left:
+arm_right:
   planner_configs:
     - AnytimePathShortening
     - SBL
@@ -153,7 +153,7 @@ manipulator_arm_left:
     - LazyPRMstar
     - SPARS
     - SPARStwo
-manipulator_arm_right:
+arm_left:
   planner_configs:
     - AnytimePathShortening
     - SBL
@@ -179,7 +179,7 @@ manipulator_arm_right:
     - LazyPRMstar
     - SPARS
     - SPARStwo
-manipulator_hand_right:
+hand_right:
   planner_configs:
     - AnytimePathShortening
     - SBL
@@ -207,7 +207,7 @@ manipulator_hand_right:
     - SPARStwo
   projection_evaluator: joints(knuckle_right_joint,finger_right_1_joint)
   longest_valid_segment_fraction: 0.005
-manipulator_hand_left:
+hand_left:
   planner_configs:
     - AnytimePathShortening
     - SBL
@@ -233,5 +233,5 @@ manipulator_hand_left:
     - LazyPRMstar
     - SPARS
     - SPARStwo
-  projection_evaluator: joints(knuckle_right_joint,finger_right_1_joint)
+  projection_evaluator: joints(knuckle_left_joint,finger_left_1_joint)
   longest_valid_segment_fraction: 0.005

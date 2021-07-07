@@ -1,7 +1,7 @@
 # Simulation settings for using moveit_sim_controllers
 moveit_sim_hw_interface:
-  joint_model_group: manipulator_arm_left
-  joint_model_group_pose: default_left
+  joint_model_group: arm_right
+  joint_model_group_pose: default_arm_right
 # Settings for ros_control_boilerplate control loop
 generic_hw_control_loop:
   loop_hz: 300
@@ -37,41 +37,7 @@ joint_state_controller:
   publish_rate: 50
 controller_list:
   []
-arm_right_position_controller:
-  type: position_controllers/JointPositionController
-  joints:
-    - shoulder_right_joint
-    - arm_right_joint
-    - forearm_right_joint
-    - wrist_right_joint
-    - palm_right_joint
-  gains:
-    shoulder_right_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    arm_right_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    forearm_right_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    wrist_right_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    palm_right_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-arm_left_position_controller:
+arm_left_controller:
   type: position_controllers/JointPositionController
   joints:
     - shoulder_left_joint
@@ -101,6 +67,40 @@ arm_left_position_controller:
       i: 1
       i_clamp: 1
     palm_left_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+arm_right_controller:
+  type: position_controllers/JointPositionController
+  joints:
+    - shoulder_right_joint
+    - arm_right_joint
+    - forearm_right_joint
+    - wrist_right_joint
+    - palm_right_joint
+  gains:
+    shoulder_right_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    arm_right_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    forearm_right_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    wrist_right_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    palm_right_joint:
       p: 100
       d: 1
       i: 1

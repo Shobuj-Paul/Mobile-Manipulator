@@ -3,7 +3,7 @@
 
 <xacro:property name="body_color" value="Gazebo/Yellow" />
 <xacro:property name="wheel_color" value="Gazebo/Black" />
-<xacro:property name="arm_color" value="Gazebo/Grey" />
+<xacro:property name="arm_color" value="Gazebo/Silver" />
 <xacro:property name="sensor_color" value="Gazebo/Red" />
 
 <gazebo reference="base_link">

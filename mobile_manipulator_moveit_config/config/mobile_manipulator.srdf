@@ -9,15 +9,7 @@
     <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
-    <group name="manipulator_arm_left">
-        <joint name="arm_base_left_joint"/>
-        <joint name="shoulder_left_joint"/>
-        <joint name="arm_left_joint"/>
-        <joint name="forearm_left_joint"/>
-        <joint name="wrist_left_joint"/>
-        <joint name="palm_left_joint"/>
-    </group>
-    <group name="manipulator_arm_right">
+    <group name="arm_right">
         <joint name="arm_base_right_joint"/>
         <joint name="shoulder_right_joint"/>
         <joint name="arm_right_joint"/>
@@ -25,33 +17,62 @@
         <joint name="wrist_right_joint"/>
         <joint name="palm_right_joint"/>
     </group>
-    <group name="manipulator_hand_right">
+    <group name="arm_left">
+        <joint name="arm_base_left_joint"/>
+        <joint name="shoulder_left_joint"/>
+        <joint name="arm_left_joint"/>
+        <joint name="forearm_left_joint"/>
+        <joint name="wrist_left_joint"/>
+        <joint name="palm_left_joint"/>
+    </group>
+    <group name="hand_right">
         <link name="knuckle_right_1"/>
         <link name="finger_right_1_1"/>
         <link name="finger_right_2_1"/>
     </group>
-    <group name="manipulator_hand_left">
-        <link name="knuckle_right_1"/>
-        <link name="finger_right_1_1"/>
-        <link name="finger_right_2_1"/>
+    <group name="hand_left">
+        <link name="knuckle_left_1"/>
+        <link name="finger_left_1_1"/>
+        <link name="finger_left_2_1"/>
     </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
-    <group_state name="default_left" group="manipulator_arm_left">
-        <joint name="arm_left_joint" value="0"/>
-        <joint name="forearm_left_joint" value="0"/>
-        <joint name="palm_left_joint" value="0"/>
-        <joint name="shoulder_left_joint" value="0"/>
-        <joint name="wrist_left_joint" value="0"/>
-    </group_state>
-    <group_state name="default_right" group="manipulator_arm_right">
+    <group_state name="default_arm_right" group="arm_right">
         <joint name="arm_right_joint" value="0"/>
         <joint name="forearm_right_joint" value="0"/>
         <joint name="palm_right_joint" value="0"/>
         <joint name="shoulder_right_joint" value="0"/>
         <joint name="wrist_right_joint" value="0"/>
     </group_state>
+    <group_state name="default_arm_left" group="arm_left">
+        <joint name="arm_left_joint" value="0"/>
+        <joint name="forearm_left_joint" value="0"/>
+        <joint name="palm_left_joint" value="0"/>
+        <joint name="shoulder_left_joint" value="0"/>
+        <joint name="wrist_left_joint" value="0"/>
+    </group_state>
+    <group_state name="right_hand_closed" group="hand_right">
+        <joint name="finger_right_1_joint" value="0"/>
+        <joint name="finger_right_2_joint" value="0"/>
+        <joint name="knuckle_right_joint" value="0"/>
+    </group_state>
+    <group_state name="left_hand_closed" group="hand_left">
+        <joint name="finger_left_1_joint" value="0"/>
+        <joint name="finger_left_2_joint" value="0"/>
+        <joint name="knuckle_left_joint" value="0"/>
+    </group_state>
+    <group_state name="right_hand_open" group="hand_right">
+        <joint name="finger_right_1_joint" value="-0.785"/>
+        <joint name="finger_right_2_joint" value="0.785"/>
+        <joint name="knuckle_right_joint" value="0"/>
+    </group_state>
+    <group_state name="left_hand_open" group="hand_left">
+        <joint name="finger_left_1_joint" value="0.785"/>
+        <joint name="finger_left_2_joint" value="-0.785"/>
+        <joint name="knuckle_left_joint" value="0"/>
+    </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="gripper_right" parent_link="palm_right_1" group="manipulator_hand_right" parent_group="manipulator_arm_right"/>
+    <end_effector name="gripper_right" parent_link="palm_right_1" group="hand_right" parent_group="arm_right"/>
+    <end_effector name="gripper_left" parent_link="palm_left_1" group="hand_left" parent_group="arm_left"/>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="dummy"/>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
@@ -87,7 +108,6 @@
     <disable_collisions link1="arm_base_right_1" link2="wheel_fr_1" reason="Never"/>
     <disable_collisions link1="arm_base_right_1" link2="wrist_left_1" reason="Never"/>
     <disable_collisions link1="arm_left_1" link2="arm_right_1" reason="Never"/>
-    <disable_collisions link1="arm_left_1" link2="finger_right_1_1" reason="Never"/>
     <disable_collisions link1="arm_left_1" link2="finger_right_2_1" reason="Never"/>
     <disable_collisions link1="arm_left_1" link2="forearm_left_1" reason="Adjacent"/>
     <disable_collisions link1="arm_left_1" link2="forearm_right_1" reason="Never"/>
@@ -103,8 +123,10 @@
     <disable_collisions link1="arm_left_1" link2="wrist_left_1" reason="Never"/>
     <disable_collisions link1="arm_left_1" link2="wrist_right_1" reason="Never"/>
     <disable_collisions link1="arm_right_1" link2="finger_left_1_1" reason="Never"/>
+    <disable_collisions link1="arm_right_1" link2="finger_left_2_1" reason="Never"/>
     <disable_collisions link1="arm_right_1" link2="forearm_left_1" reason="Never"/>
     <disable_collisions link1="arm_right_1" link2="forearm_right_1" reason="Adjacent"/>
+    <disable_collisions link1="arm_right_1" link2="knuckle_left_1" reason="Never"/>
     <disable_collisions link1="arm_right_1" link2="lidar_1" reason="Never"/>
     <disable_collisions link1="arm_right_1" link2="palm_left_1" reason="Never"/>
     <disable_collisions link1="arm_right_1" link2="shoulder_left_1" reason="Never"/>
@@ -113,6 +135,7 @@
     <disable_collisions link1="arm_right_1" link2="wheel_br_1" reason="Never"/>
     <disable_collisions link1="arm_right_1" link2="wheel_fl_1" reason="Never"/>
     <disable_collisions link1="arm_right_1" link2="wheel_fr_1" reason="Never"/>
+    <disable_collisions link1="arm_right_1" link2="wrist_left_1" reason="Never"/>
     <disable_collisions link1="arm_right_1" link2="wrist_right_1" reason="Never"/>
     <disable_collisions link1="base_link" link2="lidar_1" reason="Adjacent"/>
     <disable_collisions link1="base_link" link2="shoulder_left_1" reason="Never"/>
@@ -123,6 +146,7 @@
     <disable_collisions link1="base_link" link2="wheel_fr_1" reason="Adjacent"/>
     <disable_collisions link1="finger_left_1_1" link2="finger_right_1_1" reason="Never"/>
     <disable_collisions link1="finger_left_1_1" link2="finger_right_2_1" reason="Never"/>
+    <disable_collisions link1="finger_left_1_1" link2="forearm_right_1" reason="Never"/>
     <disable_collisions link1="finger_left_1_1" link2="knuckle_left_1" reason="Adjacent"/>
     <disable_collisions link1="finger_left_1_1" link2="knuckle_right_1" reason="Never"/>
     <disable_collisions link1="finger_left_1_1" link2="palm_right_1" reason="Never"/>
@@ -133,36 +157,35 @@
     <disable_collisions link1="finger_left_2_1" link2="finger_right_1_1" reason="Never"/>
     <disable_collisions link1="finger_left_2_1" link2="finger_right_2_1" reason="Never"/>
     <disable_collisions link1="finger_left_2_1" link2="knuckle_left_1" reason="Adjacent"/>
+    <disable_collisions link1="finger_left_2_1" link2="palm_right_1" reason="Never"/>
     <disable_collisions link1="finger_left_2_1" link2="shoulder_right_1" reason="Never"/>
     <disable_collisions link1="finger_left_2_1" link2="wheel_br_1" reason="Never"/>
     <disable_collisions link1="finger_left_2_1" link2="wheel_fr_1" reason="Never"/>
-    <disable_collisions link1="finger_left_2_1" link2="wrist_right_1" reason="Never"/>
-    <disable_collisions link1="finger_right_1_1" link2="forearm_left_1" reason="Never"/>
     <disable_collisions link1="finger_right_1_1" link2="knuckle_left_1" reason="Never"/>
     <disable_collisions link1="finger_right_1_1" link2="knuckle_right_1" reason="Adjacent"/>
     <disable_collisions link1="finger_right_1_1" link2="palm_left_1" reason="Never"/>
     <disable_collisions link1="finger_right_1_1" link2="shoulder_left_1" reason="Never"/>
     <disable_collisions link1="finger_right_1_1" link2="wheel_bl_1" reason="Never"/>
     <disable_collisions link1="finger_right_1_1" link2="wheel_fl_1" reason="Never"/>
-    <disable_collisions link1="finger_right_1_1" link2="wrist_left_1" reason="Never"/>
+    <disable_collisions link1="finger_right_2_1" link2="forearm_left_1" reason="Never"/>
     <disable_collisions link1="finger_right_2_1" link2="knuckle_left_1" reason="Never"/>
     <disable_collisions link1="finger_right_2_1" link2="knuckle_right_1" reason="Adjacent"/>
     <disable_collisions link1="finger_right_2_1" link2="palm_left_1" reason="Never"/>
     <disable_collisions link1="finger_right_2_1" link2="shoulder_left_1" reason="Never"/>
     <disable_collisions link1="finger_right_2_1" link2="wheel_bl_1" reason="Never"/>
     <disable_collisions link1="finger_right_2_1" link2="wheel_fl_1" reason="Never"/>
-    <disable_collisions link1="finger_right_2_1" link2="wrist_left_1" reason="Never"/>
     <disable_collisions link1="forearm_left_1" link2="forearm_right_1" reason="Never"/>
     <disable_collisions link1="forearm_left_1" link2="palm_left_1" reason="Never"/>
     <disable_collisions link1="forearm_left_1" link2="shoulder_right_1" reason="Never"/>
     <disable_collisions link1="forearm_left_1" link2="wheel_br_1" reason="Never"/>
     <disable_collisions link1="forearm_left_1" link2="wheel_fr_1" reason="Never"/>
     <disable_collisions link1="forearm_left_1" link2="wrist_left_1" reason="Adjacent"/>
-    <disable_collisions link1="forearm_right_1" link2="palm_left_1" reason="Never"/>
+    <disable_collisions link1="forearm_left_1" link2="wrist_right_1" reason="Never"/>
     <disable_collisions link1="forearm_right_1" link2="palm_right_1" reason="Never"/>
     <disable_collisions link1="forearm_right_1" link2="shoulder_left_1" reason="Never"/>
     <disable_collisions link1="forearm_right_1" link2="wheel_bl_1" reason="Never"/>
     <disable_collisions link1="forearm_right_1" link2="wheel_fl_1" reason="Never"/>
+    <disable_collisions link1="forearm_right_1" link2="wrist_left_1" reason="Never"/>
     <disable_collisions link1="forearm_right_1" link2="wrist_right_1" reason="Adjacent"/>
     <disable_collisions link1="knuckle_left_1" link2="knuckle_right_1" reason="Never"/>
     <disable_collisions link1="knuckle_left_1" link2="palm_left_1" reason="Adjacent"/>
@@ -170,13 +193,11 @@
     <disable_collisions link1="knuckle_left_1" link2="shoulder_right_1" reason="Never"/>
     <disable_collisions link1="knuckle_left_1" link2="wheel_br_1" reason="Never"/>
     <disable_collisions link1="knuckle_left_1" link2="wheel_fr_1" reason="Never"/>
-    <disable_collisions link1="knuckle_left_1" link2="wrist_right_1" reason="Never"/>
     <disable_collisions link1="knuckle_right_1" link2="palm_left_1" reason="Never"/>
     <disable_collisions link1="knuckle_right_1" link2="palm_right_1" reason="Adjacent"/>
     <disable_collisions link1="knuckle_right_1" link2="shoulder_left_1" reason="Never"/>
     <disable_collisions link1="knuckle_right_1" link2="wheel_bl_1" reason="Never"/>
     <disable_collisions link1="knuckle_right_1" link2="wheel_fl_1" reason="Never"/>
-    <disable_collisions link1="knuckle_right_1" link2="wrist_left_1" reason="Never"/>
     <disable_collisions link1="lidar_1" link2="shoulder_left_1" reason="Never"/>
     <disable_collisions link1="lidar_1" link2="shoulder_right_1" reason="Never"/>
     <disable_collisions link1="lidar_1" link2="wheel_bl_1" reason="Never"/>
@@ -192,7 +213,6 @@
     <disable_collisions link1="palm_right_1" link2="shoulder_left_1" reason="Never"/>
     <disable_collisions link1="palm_right_1" link2="wheel_bl_1" reason="Never"/>
     <disable_collisions link1="palm_right_1" link2="wheel_fl_1" reason="Never"/>
-    <disable_collisions link1="palm_right_1" link2="wrist_left_1" reason="Never"/>
     <disable_collisions link1="palm_right_1" link2="wrist_right_1" reason="Adjacent"/>
     <disable_collisions link1="shoulder_left_1" link2="shoulder_right_1" reason="Never"/>
     <disable_collisions link1="shoulder_left_1" link2="wheel_bl_1" reason="Never"/>
@@ -215,4 +235,5 @@
     <disable_collisions link1="wheel_fl_1" link2="wheel_fr_1" reason="Never"/>
     <disable_collisions link1="wheel_fl_1" link2="wrist_right_1" reason="Never"/>
     <disable_collisions link1="wheel_fr_1" link2="wrist_left_1" reason="Never"/>
+    <disable_collisions link1="wrist_left_1" link2="wrist_right_1" reason="Never"/>
 </robot>
