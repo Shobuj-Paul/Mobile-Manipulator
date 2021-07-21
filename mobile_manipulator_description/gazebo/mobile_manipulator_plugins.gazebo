@@ -5,10 +5,10 @@
   <plugin filename="libgazebo_ros_control.so" name="control"/>
 </gazebo>
 
-<!-- Skid Steering Drive -->
+<!--Skid Steer Drive-->
 <gazebo>
   <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
-    <updateRate>100.0</updateRate>
+    <updateRate>50.0</updateRate>
     <robotNamespace>/</robotNamespace>
     <leftFrontJoint>motor_fl</leftFrontJoint>
     <rightFrontJoint>motor_fr</rightFrontJoint>
@@ -17,7 +17,8 @@
     <wheelSeparation>0.600</wheelSeparation>
     <wheelDiameter>0.200</wheelDiameter>
     <robotBaseFrame>base_link</robotBaseFrame>
-    <torque>20</torque>
+    <torque>500.0</torque>
+    <MaxForce>50.0</MaxForce>
     <topicName>cmd_vel</topicName>
     <commandTopic>cmd_vel</commandTopic>
     <odometryTopic>odom</odometryTopic>

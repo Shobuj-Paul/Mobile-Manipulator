@@ -11,8 +11,8 @@
 <link name="base_link">
   <inertial>
     <origin rpy="0 0 0" xyz="1.1880172534914988e-15 1.8117263115745358e-14 0.3472850110892992"/>
-    <mass value="2953.848903151669"/>
-    <inertia ixx="202.347752" ixy="0.0" ixz="0.0" iyy="313.193688" iyz="0.0" izz="348.342085"/>
+    <mass value="295.3848903151669"/>
+    <inertia ixx="20.2347752" ixy="0.0" ixz="0.0" iyy="31.3193688" iyz="0.0" izz="34.8342085"/>
   </inertial>
   <visual>
     <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -143,21 +143,21 @@
   <origin rpy="0 0 0" xyz="0.35 0.35 0.1"/>
   <parent link="base_link"/>
   <child link="wheel_fl_1"/>
-  <axis xyz="0.0 1.0 -0.0"/>
+  <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
 <joint name="motor_fr" type="continuous">
   <origin rpy="0 0 0" xyz="0.35 -0.35 0.1"/>
   <parent link="base_link"/>
   <child link="wheel_fr_1"/>
-  <axis xyz="0.0 1.0 -0.0"/>
+  <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
 <joint name="motor_br" type="continuous">
   <origin rpy="0 0 0" xyz="-0.35 -0.35 0.1"/>
   <parent link="base_link"/>
   <child link="wheel_br_1"/>
-  <axis xyz="0.0 1.0 -0.0"/>
+  <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
 <joint name="lidar_joint" type="fixed">
@@ -170,7 +170,7 @@
   <origin rpy="0 0 0" xyz="-0.35 0.35 0.1"/>
   <parent link="base_link"/>
   <child link="wheel_bl_1"/>
-  <axis xyz="0.0 1.0 -0.0"/>
+  <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
 </robot>

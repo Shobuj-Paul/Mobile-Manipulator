@@ -5,35 +5,10 @@
   <plugin filename="libgazebo_ros_control.so" name="control"/>
 </gazebo>
 
-<!--<gazebo>
-  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-    <updateRate>100</updateRate>
-    <leftJoint>motor_fl</leftJoint>
-    <rightJoint>motor_fr</rightJoint>
-    <wheelSeparation>0.600</wheelSeparation>
-    <wheelDiameter>0.200</wheelDiameter>
-    <wheelAcceleration>1.0</wheelAcceleration>
-    <wheelTorque>20</wheelTorque>
-    <commandTopic>cmd_vel</commandTopic>
-    <odometryTopic>odom</odometryTopic>
-    <odometryFrame>odom</odometryFrame>
-    <robotBaseFrame>base_link</robotBaseFrame>
-    <odometrySource>1</odometrySource>
-    <publishWheelTF>true</publishWheelTF>
-    <publishOdom>true</publishOdom>
-    <publishWheelJointState>true</publishWheelJointState>
-    <publishOdomTF>true</publishOdomTF>
-    <publishTf>1</publishTf>
-    <odometrySource>odom</odometrySource>
-    <rosDebugLevel>na</rosDebugLevel>
-    <legacyMode>false</legacyMode>
-  </plugin>
-</gazebo>-->
-
 <!--Skid Steer Drive-->
 <gazebo>
   <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
-    <updateRate>100.0</updateRate>
+    <updateRate>50.0</updateRate>
     <robotNamespace>/</robotNamespace>
     <leftFrontJoint>motor_fl</leftFrontJoint>
     <rightFrontJoint>motor_fr</rightFrontJoint>
@@ -41,10 +16,10 @@
     <rightRearJoint>motor_br</rightRearJoint>
     <wheelSeparation>0.600</wheelSeparation>
     <wheelDiameter>0.200</wheelDiameter>
-    <robotBaseFrame>dummy</robotBaseFrame>
-    <torque>200</torque>
-    <MaxForce>5.0</MaxForce>
-    <!--<topicName>cmd_vel</topicName>-->
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <torque>500.0</torque>
+    <MaxForce>50.0</MaxForce>
+    <topicName>cmd_vel</topicName>
     <commandTopic>cmd_vel</commandTopic>
     <odometryTopic>odom</odometryTopic>
     <odometryFrame>odom</odometryFrame>
@@ -54,6 +29,17 @@
     <broadcastTF>true</broadcastTF>
   </plugin>
 </gazebo>
+
+<!--<gazebo>
+  <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <odometryRate>20.0</odometryRate>
+    <cmdTimeout>-1.00000</cmdTimeout>
+    <robotBaseFrame>base_link</robotBaseFrame>
+  </plugin>
+</gazebo>-->
 
 <!-- Lidar -->
   <gazebo reference="lidar_1">

@@ -27,9 +27,12 @@ Moveit configuration packages were generated using Moveit setup assistant with t
 3. Commands can be given to move_group using either Rviz GUI, Python scripts or C++ programs.
 
 ![Commands](/assets/images/rviz_image_3.png)
+
+### Stage 3: Movement and Navigation
+1. cmd_vel is being published which can be used to move the robot either with teleoperation or by publishing directly to topic using nodes.
+
+2. Goal positions can be passed to move_base node for autonomous navigation of the robot.
  
 ### Further Progress:
-- Have to set up a differential drive controller compatible with a 4-wheel bot which publishes to /cmd_vel
-- Make changes to URDF and gazebo files to configure the robot controls in gazebo
 - Create a world and objects to test out grasping and manipulation
 - Create an entire scenario to test our robot controls and planners.
