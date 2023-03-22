@@ -2,7 +2,9 @@
 <robot name="manipulator" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
 <gazebo>
-  <plugin filename="libgazebo_ros_control.so" name="control"/>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/manipulator</robotNamespace>
+  </plugin>
 </gazebo>
 
 </robot>

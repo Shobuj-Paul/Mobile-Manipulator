@@ -1,7 +1,7 @@
 <launch>
 
 <rosparam file="$(find manipulator_description)/config/controller.yaml" command="load"/>
-<node args="base_joint_position_controller shoulder_joint_position_controller elbow_joint_position_controller wrist_joint_position_controller hand_joint_position_controller palm_joint_position_controller finger_1_joint_position_controller finger_2_joint_position_controller joint_state_controller " name="controller_spawner" ns="manipulator" output="screen" pkg="controller_manager" respawn="false" type="spawner"/>
+<node args="base_joint_position_controller shoulder_joint_position_controller elbow_joint_position_controller wrist_joint_position_controller hand_joint_position_controller palm_joint_position_controller finger_1_joint_position_controller finger_2_joint_position_controller joint_state_controller " name="controller_spawner" ns="/manipulator" output="screen" pkg="controller_manager" respawn="false" type="spawner"/>
 <node name="robot_state_publisher" output="screen" pkg="robot_state_publisher" respawn="false" type="robot_state_publisher">
   <remap from="/joint_states" to="/manipulator/joint_states"/>
 </node>
